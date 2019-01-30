@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		874046AF219954130057D103 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874046AE219954130057D103 /* AppDelegate.swift */; };
+		874046B1219954130057D103 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874046B0219954130057D103 /* ViewController.swift */; };
+		874046B4219954130057D103 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874046B2219954130057D103 /* Main.storyboard */; };
+		874046B6219954140057D103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 874046B5219954140057D103 /* Assets.xcassets */; };
+		874046B9219954140057D103 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874046B7219954140057D103 /* LaunchScreen.storyboard */; };
+		876E3591219A2E2100FDC967 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E3590219A2E2100FDC967 /* EventsViewController.swift */; };
+		8775532021B324E700C81134 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8775531F21B324E700C81134 /* Events.swift */; };
+		87B7FEE721AFB1680090ED6C /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B7FEE621AFB1680090ED6C /* EventsTableViewCell.swift */; };
+		87BCA42D21F7DFD400889B3E /* EventDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCA42C21F7DFD400889B3E /* EventDetailTableViewCell.swift */; };
+		87BCA42F21F7E0DE00889B3E /* EventsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCA42E21F7E0DE00889B3E /* EventsDetailViewController.swift */; };
+		87FC21AC21ABC94A007B237A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC21AB21ABC94A007B237A /* LoginViewController.swift */; };
+		ED9945A7650DF37FEB9138FA /* Pods_FargoEventsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B273584EF0A05ABF2BF315 /* Pods_FargoEventsApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		14C51719D3F260FF4B97C516 /* Pods-FargoEventsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FargoEventsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FargoEventsApp/Pods-FargoEventsApp.release.xcconfig"; sourceTree = "<group>"; };
+		6C2B97A68B4E47A58601CA7F /* Pods-FargoEventsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FargoEventsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FargoEventsApp/Pods-FargoEventsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		873CD5D321EA8146005C65BF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		874046AB219954130057D103 /* FargoEventsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FargoEventsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		874046AE219954130057D103 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		874046B0219954130057D103 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		874046B3219954130057D103 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		874046B5219954140057D103 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		874046B8219954140057D103 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		874046BA219954140057D103 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		876E3590219A2E2100FDC967 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		8775531F21B324E700C81134 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		87B7FEE621AFB1680090ED6C /* EventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
+		87BCA42C21F7DFD400889B3E /* EventDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewCell.swift; sourceTree = "<group>"; };
+		87BCA42E21F7E0DE00889B3E /* EventsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDetailViewController.swift; sourceTree = "<group>"; };
+		87FC21AB21ABC94A007B237A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A4B273584EF0A05ABF2BF315 /* Pods_FargoEventsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FargoEventsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		874046A8219954130057D103 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED9945A7650DF37FEB9138FA /* Pods_FargoEventsApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5CB02B4D7B48F5BDF9A7B4CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				873CD5D321EA8146005C65BF /* XCTest.framework */,
+				A4B273584EF0A05ABF2BF315 /* Pods_FargoEventsApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		874046A2219954130057D103 = {
+			isa = PBXGroup;
+			children = (
+				874046AD219954130057D103 /* FargoEventsApp */,
+				874046AC219954130057D103 /* Products */,
+				C46082684831D3AAF390A452 /* Pods */,
+				5CB02B4D7B48F5BDF9A7B4CD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		874046AC219954130057D103 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				874046AB219954130057D103 /* FargoEventsApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		874046AD219954130057D103 /* FargoEventsApp */ = {
+			isa = PBXGroup;
+			children = (
+				874046AE219954130057D103 /* AppDelegate.swift */,
+				874046B0219954130057D103 /* ViewController.swift */,
+				874046B2219954130057D103 /* Main.storyboard */,
+				874046B5219954140057D103 /* Assets.xcassets */,
+				874046B7219954140057D103 /* LaunchScreen.storyboard */,
+				874046BA219954140057D103 /* Info.plist */,
+				876E3590219A2E2100FDC967 /* EventsViewController.swift */,
+				87FC21AB21ABC94A007B237A /* LoginViewController.swift */,
+				87B7FEE621AFB1680090ED6C /* EventsTableViewCell.swift */,
+				8775531F21B324E700C81134 /* Events.swift */,
+				87BCA42C21F7DFD400889B3E /* EventDetailTableViewCell.swift */,
+				87BCA42E21F7E0DE00889B3E /* EventsDetailViewController.swift */,
+			);
+			path = FargoEventsApp;
+			sourceTree = "<group>";
+		};
+		C46082684831D3AAF390A452 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C2B97A68B4E47A58601CA7F /* Pods-FargoEventsApp.debug.xcconfig */,
+				14C51719D3F260FF4B97C516 /* Pods-FargoEventsApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		874046AA219954130057D103 /* FargoEventsApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 874046BD219954140057D103 /* Build configuration list for PBXNativeTarget "FargoEventsApp" */;
+			buildPhases = (
+				292BCF99A7E8E9DF314EFD63 /* [CP] Check Pods Manifest.lock */,
+				874046A7219954130057D103 /* Sources */,
+				874046A8219954130057D103 /* Frameworks */,
+				874046A9219954130057D103 /* Resources */,
+				94042D623EB110A82A687126 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FargoEventsApp;
+			productName = FargoEventsApp;
+			productReference = 874046AB219954130057D103 /* FargoEventsApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		874046A3219954130057D103 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Mitch Schumacher";
+				TargetAttributes = {
+					874046AA219954130057D103 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 874046A6219954130057D103 /* Build configuration list for PBXProject "FargoEventsApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 874046A2219954130057D103;
+			productRefGroup = 874046AC219954130057D103 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				874046AA219954130057D103 /* FargoEventsApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		874046A9219954130057D103 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				874046B9219954140057D103 /* LaunchScreen.storyboard in Resources */,
+				874046B6219954140057D103 /* Assets.xcassets in Resources */,
+				874046B4219954130057D103 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		292BCF99A7E8E9DF314EFD63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FargoEventsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94042D623EB110A82A687126 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FargoEventsApp/Pods-FargoEventsApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EVReflection/EVReflection.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EVReflection.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FargoEventsApp/Pods-FargoEventsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		874046A7219954130057D103 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87FC21AC21ABC94A007B237A /* LoginViewController.swift in Sources */,
+				874046B1219954130057D103 /* ViewController.swift in Sources */,
+				874046AF219954130057D103 /* AppDelegate.swift in Sources */,
+				87BCA42D21F7DFD400889B3E /* EventDetailTableViewCell.swift in Sources */,
+				87BCA42F21F7E0DE00889B3E /* EventsDetailViewController.swift in Sources */,
+				8775532021B324E700C81134 /* Events.swift in Sources */,
+				87B7FEE721AFB1680090ED6C /* EventsTableViewCell.swift in Sources */,
+				876E3591219A2E2100FDC967 /* EventsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		874046B2219954130057D103 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				874046B3219954130057D103 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		874046B7219954140057D103 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				874046B8219954140057D103 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		874046BB219954140057D103 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		874046BC219954140057D103 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		874046BE219954140057D103 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C2B97A68B4E47A58601CA7F /* Pods-FargoEventsApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VA8J69LXJD;
+				INFOPLIST_FILE = FargoEventsApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.schumacher.FargoEventsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		874046BF219954140057D103 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14C51719D3F260FF4B97C516 /* Pods-FargoEventsApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VA8J69LXJD;
+				INFOPLIST_FILE = FargoEventsApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.schumacher.FargoEventsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		874046A6219954130057D103 /* Build configuration list for PBXProject "FargoEventsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				874046BB219954140057D103 /* Debug */,
+				874046BC219954140057D103 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		874046BD219954140057D103 /* Build configuration list for PBXNativeTarget "FargoEventsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				874046BE219954140057D103 /* Debug */,
+				874046BF219954140057D103 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 874046A3219954130057D103 /* Project object */;
+}
