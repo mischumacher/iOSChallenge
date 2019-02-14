@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+       
+        let userTok = UserDefaults.standard.string(forKey: "isLoggedIn")
+        if userTok != nil{
+            let mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
+            let protectedPage = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
+            window!.rootViewController = protectedPage
+            window!.makeKeyAndVisible()
+        }
+ 
         return true
     }
 

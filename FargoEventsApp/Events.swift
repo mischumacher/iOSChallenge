@@ -37,8 +37,14 @@ class EventDetails: EVNetworkingObject {
     var location: String?
     var featured: String?
     var event_description: String?
-    
+    var speakers: [SpeakerIDS] = [SpeakerIDS]()
 }
+
+class SpeakerIDS: EVNetworkingObject {
+    var id: NSNumber?
+}
+
+
 
 
 

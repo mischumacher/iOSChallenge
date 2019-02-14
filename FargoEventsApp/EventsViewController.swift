@@ -19,9 +19,14 @@ class EventsViewController: UITableViewController {
     
     //Mark: Properties
     @IBOutlet var selectedEvent: UITableView!
+    @IBAction func logoutButton(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "isLoggedIn")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        self.present(loginVC, animated: true, completion: nil)
+    }
     
     var listOfEvents: [Events] = [Events]()
-    var listDetails: [EventDetails] = [EventDetails]()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +34,19 @@ class EventsViewController: UITableViewController {
         selectedEvent.dataSource = self
         self.selectedEvent.estimatedRowHeight = 85
         self.selectedEvent.rowHeight = UITableView.automaticDimension
+        let userTok = UserDefaults.standard.string(forKey: "isLoggedIn")
+        print(userTok as Any)
         getList()
 
 }
+    
     func getList(){
         
+        let urlIndex = "https://challenge.myriadapps.com/api/v1/events"
+        let userTok = UserDefaults.standard.string(forKey: "isLoggedIn")
+        let header: HTTPHeaders = ["Authorization": userTok!]
         
-        Alamofire.request("https://challenge.myriadapps.com/api/v1/events",
-                          method: .get,
-                          headers: ["Authorization": "supersecrettoken"])
+        Alamofire.request(urlIndex, method: .get, headers: header)
             .responseArray { (response: DataResponse<[Events]>) in
                if let result = response.value {
                 for newList in result{
@@ -84,9 +93,7 @@ class EventsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         myIndex = listOfEvents[indexPath.row].id!
-        
         performSegue(withIdentifier: "segue", sender: self)
-       
     }
 
 }
