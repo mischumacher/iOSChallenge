@@ -13,7 +13,7 @@ import EVReflection
 import SDWebImage
 
 
-var myIndex: NSNumber?
+
 
 class EventsViewController: UITableViewController {
     
@@ -27,6 +27,7 @@ class EventsViewController: UITableViewController {
     }
     
     var listOfEvents: [Events] = [Events]()
+
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +35,6 @@ class EventsViewController: UITableViewController {
         selectedEvent.dataSource = self
         self.selectedEvent.estimatedRowHeight = 85
         self.selectedEvent.rowHeight = UITableView.automaticDimension
-        let userTok = UserDefaults.standard.string(forKey: "isLoggedIn")
-        print(userTok as Any)
         getList()
 
 }
@@ -58,6 +57,7 @@ class EventsViewController: UITableViewController {
         }
     }
     
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,18 +72,25 @@ class EventsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let dateFormatter = DateFormatter()
+       
         let cellIdentifier = "EventsListCell"
         
         let cell = selectedEvent.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! EventsTableViewCell
         
+        let dateFormatter = DateFormatter()
         let event = listOfEvents[indexPath.row]
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy/MM/dd'T'HH:mm:ssZ"
-        let date = dateFormatter.date(from: event.start_date_time!)
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        let startDate = dateFormatter.date(from: event.start_date_time!)
+        let endDate = dateFormatter.date(from: event.end_date_time!)
+        dateFormatter.dateFormat = "MM/dd/yyyy HH:mm a"
+        let formattedStartDate = dateFormatter.string(from: startDate!)
+        dateFormatter.dateFormat = "h:mm a"
+        let formattedEndDate = dateFormatter.string(from: endDate!)
+        
         cell.eventsName.text = event.title
         cell.photoImageView.sd_setImage(with: URL(string: event.image_url!), completed: nil)
-        cell.startDateTime.text = dateFormatter.string(from: date!)
+        cell.startDateTime.text = formattedStartDate + "-" + formattedEndDate
         return cell
         
     }
@@ -92,8 +99,13 @@ class EventsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        myIndex = listOfEvents[indexPath.row].id!
-        performSegue(withIdentifier: "segue", sender: self)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let eDVC = storyboard.instantiateViewController(withIdentifier: "EventsDetailViewController") as! EventsDetailViewController
+        let event = listOfEvents[indexPath.row]
+        
+        eDVC.cellIndex = event.id as NSNumber
+        self.navigationController?.pushViewController(eDVC, animated: true)
     }
 
 }

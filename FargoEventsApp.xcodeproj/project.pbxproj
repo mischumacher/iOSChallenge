@@ -90,22 +90,54 @@
 			isa = PBXGroup;
 			children = (
 				874046AE219954130057D103 /* AppDelegate.swift */,
+				874046BA219954140057D103 /* Info.plist */,
+				B8B53C75221E097E0072B005 /* UI */,
+				B8B53C74221E08FC0072B005 /* ViewControllers */,
+				B8B53C78221E09D20072B005 /* API Objects */,
+				B8B53C76221E09920072B005 /* Cells */,
+			);
+			path = FargoEventsApp;
+			sourceTree = "<group>";
+		};
+		B8B53C74221E08FC0072B005 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				874046B0219954130057D103 /* ViewController.swift */,
+				B890B5AE22148D8200614487 /* MainNavigationController.swift */,
+				87FC21AB21ABC94A007B237A /* LoginViewController.swift */,
+				876E3590219A2E2100FDC967 /* EventsViewController.swift */,
+				87BCA42E21F7E0DE00889B3E /* EventsDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B8B53C75221E097E0072B005 /* UI */ = {
+			isa = PBXGroup;
+			children = (
 				874046B2219954130057D103 /* Main.storyboard */,
 				874046B5219954140057D103 /* Assets.xcassets */,
 				874046B7219954140057D103 /* LaunchScreen.storyboard */,
-				874046BA219954140057D103 /* Info.plist */,
-				876E3590219A2E2100FDC967 /* EventsViewController.swift */,
-				87FC21AB21ABC94A007B237A /* LoginViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		B8B53C76221E09920072B005 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
 				87B7FEE621AFB1680090ED6C /* EventsTableViewCell.swift */,
-				8775531F21B324E700C81134 /* Events.swift */,
 				87BCA42C21F7DFD400889B3E /* EventDetailTableViewCell.swift */,
-				87BCA42E21F7E0DE00889B3E /* EventsDetailViewController.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B8B53C78221E09D20072B005 /* API Objects */ = {
+			isa = PBXGroup;
+			children = (
+				8775531F21B324E700C81134 /* Events.swift */,
 				B8048D5E2211F7E30084ED80 /* Users.swift */,
 				B890B5AA2214853B00614487 /* UserDefaults.swift */,
-				B890B5AE22148D8200614487 /* MainNavigationController.swift */,
 			);
-			path = FargoEventsApp;
+			path = "API Objects";
 			sourceTree = "<group>";
 		};
 		C46082684831D3AAF390A452 /* Pods */ = {
@@ -400,7 +432,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VA8J69LXJD;
 				INFOPLIST_FILE = FargoEventsApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -422,7 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VA8J69LXJD;
 				INFOPLIST_FILE = FargoEventsApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
