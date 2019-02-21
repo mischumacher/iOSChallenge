@@ -27,8 +27,8 @@ class EventsViewController: UITableViewController {
     }
     
     var listOfEvents: [Events] = [Events]()
-
-   
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedEvent.delegate = self
@@ -36,8 +36,8 @@ class EventsViewController: UITableViewController {
         self.selectedEvent.estimatedRowHeight = 85
         self.selectedEvent.rowHeight = UITableView.automaticDimension
         getList()
-
-}
+        
+    }
     
     func getList(){
         
@@ -47,32 +47,32 @@ class EventsViewController: UITableViewController {
         
         Alamofire.request(urlIndex, method: .get, headers: header)
             .responseArray { (response: DataResponse<[Events]>) in
-               if let result = response.value {
-                for newList in result{
-                    self.listOfEvents.append(newList)
+                if let result = response.value {
+                    for newList in result{
+                        self.listOfEvents.append(newList)
+                    }
+                    self.selectedEvent.reloadData()
                 }
-                self.selectedEvent.reloadData()
-                }
-    
+                
         }
     }
     
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return   listOfEvents.count
     }
     
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-       
+        
         let cellIdentifier = "EventsListCell"
         
         let cell = selectedEvent.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! EventsTableViewCell
@@ -95,7 +95,7 @@ class EventsViewController: UITableViewController {
         
     }
     
-     // MARK: - Navigation
+    // MARK: - Navigation
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -107,5 +107,5 @@ class EventsViewController: UITableViewController {
         eDVC.cellIndex = event.id as NSNumber
         self.navigationController?.pushViewController(eDVC, animated: true)
     }
-
+    
 }

@@ -20,8 +20,8 @@ class EventsDetailViewController: UITableViewController{
     var speakerDetails: [Speakers] = [Speakers]()
     var speaker2Details: [Speakers] = [Speakers]()
     var speakerID: [SpeakerIDS] = [SpeakerIDS]()
-
-        override func viewDidLoad() {
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
@@ -29,27 +29,26 @@ class EventsDetailViewController: UITableViewController{
         getSpeakerDetails()
         
     }
-
+    
     func getEventDetails(){
         
         let eventURL = String("https://challenge.myriadapps.com/api/v1/events/\(String(describing: cellIndex))")
         let userTok = UserDefaults.standard.string(forKey: "isLoggedIn")
         let header: HTTPHeaders = ["Authorization": userTok!]
         
-      Alamofire.request(eventURL, method: .get, headers: header)
+        Alamofire.request(eventURL, method: .get, headers: header)
             .responseArray { (response: DataResponse<[EventDetails]>) in
                 if let result = response.value {
                     for newList in result{
                         self.listDetails.append(newList)
                         self.speakerID.append(contentsOf: newList.speakers)
                         if self.speakerID.count > 1{
-                            print(newList.speakers[1].id!)
                             let speakerURL = String("https://challenge.myriadapps.com/api/v1/speakers/\(String(describing: newList.speakers[1].id!))")
                             Alamofire.request(speakerURL, method: .get, headers: header)
                                 .responseArray { (response: DataResponse<[Speakers]>) in
                                     if let result = response.value {
                                         for newSpeaker in result{
-                                         self.speaker2Details.append(newSpeaker)
+                                            self.speaker2Details.append(newSpeaker)
                                         }
                                     }
                                     self.tableView.reloadData()
@@ -77,12 +76,12 @@ class EventsDetailViewController: UITableViewController{
                 }
         }
     }
-
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         if self.speakerID.count > 1{
-            return 3
+            return 1 + speakerID.count
         }else{
             return 2
         }
@@ -160,21 +159,21 @@ class EventsDetailViewController: UITableViewController{
             let cell3 = tableView.dequeueReusableCell(withIdentifier: cellIdentifier3, for: indexPath as IndexPath) as! EventDetailTableViewCell
             
             let speaker = speaker2Details[indexPath.row]
-            cell3.speakerImage.sd_setImage(with: URL(string: speaker.image_url!), completed: nil)
-            cell3.speakerFirstName.text = speaker.first_name
-            cell3.speakerLastName.text = speaker.last_name
-            cell3.speakerBio.text = speaker.bio
+            cell3.speaker2Img.sd_setImage(with: URL(string: speaker.image_url!), completed: nil)
+            cell3.speaker2FirstName.text = speaker.first_name
+            cell3.speaker2LastName.text = speaker.last_name
+            cell3.speaker2Bio.text = speaker.bio
             return cell3
         }
         
-     
         
-    
+        
+        
     }
     
 }
 
 
-    
+
 
 

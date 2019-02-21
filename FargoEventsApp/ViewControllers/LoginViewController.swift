@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        
         
         for textField in [usernameTextField, passwordTextField]{
             textField!.delegate = self
@@ -54,14 +54,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     //Mark: Login Button
     
     @IBAction func loginButtonDidTouch(_ sender: Any) {
-       
+        
         //validates text field
         validationLabel.isHidden = true
         if (usernameTextField!.text != nil), usernameTextField.text?.count != 0{}
-            else{
-                validationLabel.isHidden = false
-                validationLabel.text = "Please Enter Username"
-                return
+        else{
+            validationLabel.isHidden = false
+            validationLabel.text = "Please Enter Username"
+            return
         }
         if (passwordTextField!.text != nil), passwordTextField.text?.count != 0{}
         else{
@@ -69,8 +69,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
             validationLabel.text = "Please Enter Password"
             return
         }
-    
-        //makes api post request to login page and saves the user token to a userdefault
+        
+        //makes api post request to login page and saves the user token to a user default
         let loginURL = "https://challenge.myriadapps.com/api/v1/login"
         let params = ["Username": usernameTextField.text,"Password": passwordTextField.text]
         Alamofire.request(loginURL, method: .post, parameters: params as Parameters)
