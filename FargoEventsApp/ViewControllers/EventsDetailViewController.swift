@@ -101,6 +101,18 @@ class EventsDetailViewController: UITableViewController{
         }
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return nil
+        case 1:
+            return "Speaker"
+        case 2:
+            return "Speaker"
+        default:
+            return nil
+        }
+    }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
