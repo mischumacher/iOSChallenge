@@ -7,25 +7,15 @@
 //
 
 import UIKit
+import KeychainAccess
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-       
-        // Checks to see if user has already logged in and if they are navigates to the Events View
-        let userTok = UserDefaults.standard.string(forKey: "isLoggedIn")
-        if userTok != nil{
-            let mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
-            let protectedPage = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
-            window!.rootViewController = protectedPage
-            window!.makeKeyAndVisible()
-        }
- 
         return true
     }
 

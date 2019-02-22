@@ -11,10 +11,12 @@ import UIKit
 import Alamofire
 import EVReflection
 import SDWebImage
+import KeychainAccess
 
 class EventsDetailViewController: UITableViewController{
     
-    var cellIndex = NSNumber()
+    var eventID = NSNumber()
+    let tokenKeychain = Keychain(service: "com.schumacher.FargoEventsApp")
     
     var listDetails: [EventDetails] = [EventDetails]()
     var speakerDetails: [Speakers] = [Speakers]()
@@ -25,34 +27,32 @@ class EventsDetailViewController: UITableViewController{
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        getEventDetails()
-        getSpeakerDetails()
         
+    }
+    
+    static func createEventDetails(eventID: NSNumber) -> EventsDetailViewController{
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "EventsDetailViewController") as! EventsDetailViewController
+        vc.eventID = eventID
+        vc.getEventDetails()
+        vc.getSpeakerDetails()
+        return vc
     }
     
     func getEventDetails(){
         
-        let eventURL = String("https://challenge.myriadapps.com/api/v1/events/\(String(describing: cellIndex))")
-        let userTok = UserDefaults.standard.string(forKey: "isLoggedIn")
-        let header: HTTPHeaders = ["Authorization": userTok!]
+        let eventURL = String("https://challenge.myriadapps.com/api/v1/events/\(String(describing: eventID))")
+        let userToken = tokenKeychain["loginToken"]
+        let header: HTTPHeaders = ["Authorization": userToken!]
         
         Alamofire.request(eventURL, method: .get, headers: header)
             .responseArray { (response: DataResponse<[EventDetails]>) in
                 if let result = response.value {
+                    self.listDetails = result
                     for newList in result{
-                        self.listDetails.append(newList)
                         self.speakerID.append(contentsOf: newList.speakers)
                         if self.speakerID.count > 1{
-                            let speakerURL = String("https://challenge.myriadapps.com/api/v1/speakers/\(String(describing: newList.speakers[1].id!))")
-                            Alamofire.request(speakerURL, method: .get, headers: header)
-                                .responseArray { (response: DataResponse<[Speakers]>) in
-                                    if let result = response.value {
-                                        for newSpeaker in result{
-                                            self.speaker2Details.append(newSpeaker)
-                                        }
-                                    }
-                                    self.tableView.reloadData()
-                            }
+                            self.getSecondSpeakerDetails(speakerID: self.speakerID[1].id!)
                         }
                     }
                     self.tableView.reloadData()
@@ -62,18 +62,32 @@ class EventsDetailViewController: UITableViewController{
     
     func getSpeakerDetails(){
         
-        let speakerURL = String("https://challenge.myriadapps.com/api/v1/speakers/\(String(describing: cellIndex))")
-        let userTok = UserDefaults.standard.string(forKey: "isLoggedIn")
-        let header: HTTPHeaders = ["Authorization": userTok!]
+        let speakerURL = String("https://challenge.myriadapps.com/api/v1/speakers/\(String(describing: eventID))")
+        let userToken = tokenKeychain["loginToken"]
+        let header: HTTPHeaders = ["Authorization": userToken!]
         
         Alamofire.request(speakerURL, method: .get, headers: header)
             .responseArray { (response: DataResponse<[Speakers]>) in
                 if let result = response.value {
-                    for newList in result{
-                        self.speakerDetails.append(newList)
-                    }
-                    self.tableView.reloadData()
+                    self.speakerDetails = result
                 }
+                self.tableView.reloadData()
+                
+        }
+    }
+    
+    
+    func getSecondSpeakerDetails(speakerID: NSNumber){
+        let speakerURL = String("https://challenge.myriadapps.com/api/v1/speakers/\(String(describing: speakerID))")
+        let userToken = tokenKeychain["loginToken"]
+        let header: HTTPHeaders = ["Authorization": userToken!]
+        Alamofire.request(speakerURL, method: .get, headers: header)
+            .responseArray { (response: DataResponse<[Speakers]>) in
+                if let result = response.value {
+                    self.speaker2Details = result
+                    
+                }
+                self.tableView.reloadData()
         }
     }
     
@@ -120,17 +134,25 @@ class EventsDetailViewController: UITableViewController{
             let cellIdentifier = "Events Detail Cell"
             
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! EventDetailTableViewCell
-            
             let dateFormatter = DateFormatter()
             let event = listDetails[indexPath.row]
+            var formattedStartDate = ""
+            var formattedEndDate = ""
+            
             dateFormatter.dateFormat = "yyyy/MM/dd'T'HH:mm:ssZ"
             dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            let startDate = dateFormatter.date(from: event.start_date_time!)
-            let endDate = dateFormatter.date(from: event.end_date_time!)
-            dateFormatter.dateFormat = "MM/dd/yyyy HH:mm a"
-            let formattedStartDate = dateFormatter.string(from: startDate!)
-            dateFormatter.dateFormat = "h:mm a"
-            let formattedEndDate = dateFormatter.string(from: endDate!)
+            if let startDate = event.start_date_time{
+                let eventTime = dateFormatter.date(from: startDate)
+                dateFormatter.dateFormat = "MM/dd/yyyy HH:mm a"
+                formattedStartDate = eventTime != nil ? dateFormatter.string(from: eventTime!) : "No Start Time"
+            }
+            if let endDate = event.end_date_time{
+                dateFormatter.dateFormat = "yyyy/MM/dd'T'HH:mm:ssZ"
+                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                let eventTimed = dateFormatter.date(from: endDate)
+                dateFormatter.dateFormat = "h:mm a"
+                formattedEndDate = eventTimed != nil ? dateFormatter.string(from: eventTimed!) : "No End Time"
+            }
             
             cell.eventTitle.text = event.title
             cell.eventDescription.text = event.event_description
@@ -172,6 +194,7 @@ class EventsDetailViewController: UITableViewController{
     }
     
 }
+
 
 
 

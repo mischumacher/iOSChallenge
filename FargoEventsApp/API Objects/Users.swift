@@ -11,5 +11,5 @@ import EVReflection
 
 
 class User: EVNetworkingObject {
-    var token: NSString?
+    var token: String?
 }

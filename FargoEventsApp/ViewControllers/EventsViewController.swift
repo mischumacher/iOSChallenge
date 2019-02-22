@@ -11,6 +11,7 @@ import UIKit
 import Alamofire
 import EVReflection
 import SDWebImage
+import KeychainAccess
 
 
 
@@ -18,46 +19,36 @@ import SDWebImage
 class EventsViewController: UITableViewController {
     
     //Mark: Properties
+    let tokenKeychain = Keychain(service: "com.schumacher.FargoEventsApp")
     @IBOutlet var selectedEvent: UITableView!
-    @IBAction func logoutButton(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: "isLoggedIn")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        self.present(loginVC, animated: true, completion: nil)
-    }
+    
     
     var listOfEvents: [Events] = [Events]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: true)
         selectedEvent.delegate = self
         selectedEvent.dataSource = self
         self.selectedEvent.estimatedRowHeight = 85
         self.selectedEvent.rowHeight = UITableView.automaticDimension
-        getList()
+        
         
     }
     
-    func getList(){
-        
-        let urlIndex = "https://challenge.myriadapps.com/api/v1/events"
-        let userTok = UserDefaults.standard.string(forKey: "isLoggedIn")
-        let header: HTTPHeaders = ["Authorization": userTok!]
-        
-        Alamofire.request(urlIndex, method: .get, headers: header)
-            .responseArray { (response: DataResponse<[Events]>) in
-                if let result = response.value {
-                    for newList in result{
-                        self.listOfEvents.append(newList)
-                    }
-                    self.selectedEvent.reloadData()
-                }
-                
-        }
+    static func create(events: [Events]) -> EventsViewController{
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "EventsViewController") as! EventsViewController
+        vc.listOfEvents = events
+        return vc
     }
     
-    
+    @IBAction func logoutButton(_ sender: Any) {
+        tokenKeychain["loginToken"] = nil
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -74,19 +65,26 @@ class EventsViewController: UITableViewController {
         
         
         let cellIdentifier = "EventsListCell"
-        
         let cell = selectedEvent.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! EventsTableViewCell
-        
         let dateFormatter = DateFormatter()
         let event = listOfEvents[indexPath.row]
+        var formattedStartDate = ""
+        var formattedEndDate = ""
+        
         dateFormatter.dateFormat = "yyyy/MM/dd'T'HH:mm:ssZ"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        let startDate = dateFormatter.date(from: event.start_date_time!)
-        let endDate = dateFormatter.date(from: event.end_date_time!)
-        dateFormatter.dateFormat = "MM/dd/yyyy HH:mm a"
-        let formattedStartDate = dateFormatter.string(from: startDate!)
-        dateFormatter.dateFormat = "h:mm a"
-        let formattedEndDate = dateFormatter.string(from: endDate!)
+        if let startDate = event.start_date_time{
+            let eventTime = dateFormatter.date(from: startDate)
+            dateFormatter.dateFormat = "MM/dd/yyyy HH:mm a"
+            formattedStartDate = eventTime != nil ? dateFormatter.string(from: eventTime!) : "No Start Time"
+        }
+        if let endDate = event.end_date_time{
+            dateFormatter.dateFormat = "yyyy/MM/dd'T'HH:mm:ssZ"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            let eventTimed = dateFormatter.date(from: endDate)
+            dateFormatter.dateFormat = "h:mm a"
+            formattedEndDate = eventTimed != nil ? dateFormatter.string(from: eventTimed!) : "No End Time"
+        }
         
         cell.eventsName.text = event.title
         cell.photoImageView.sd_setImage(with: URL(string: event.image_url!), completed: nil)
@@ -99,13 +97,9 @@ class EventsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let eDVC = storyboard.instantiateViewController(withIdentifier: "EventsDetailViewController") as! EventsDetailViewController
         let event = listOfEvents[indexPath.row]
-        
-        eDVC.cellIndex = event.id as NSNumber
-        self.navigationController?.pushViewController(eDVC, animated: true)
+        self.navigationController?.pushViewController(EventsDetailViewController.createEventDetails(eventID:  event.id), animated: true)
     }
     
 }
+

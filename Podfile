@@ -6,5 +6,6 @@ target 'FargoEventsApp' do
 pod 'Alamofire', '~> 4.7'
 pod 'EVReflection/Alamofire'
 pod 'SDWebImage'
+pod 'KeychainAccess'
 end
 

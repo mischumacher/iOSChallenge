@@ -10,13 +10,12 @@ import Foundation
 
 extension UserDefaults{
     
-    func setIsLoggedIn(Value: Bool){
-        set(true, forKey: "isLoggedIn")
-        synchronize()
+    func setLaunchStatus(){
+        set(true, forKey: "isFirstLaunch")
     }
     
-    func isLoggedIn() -> Bool{
-        return bool(forKey: "isLoggedIn")
+    func isFirstLaunch() -> Bool{
+        return bool(forKey: "isFirstLaunch")
     }
     
     
