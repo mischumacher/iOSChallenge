@@ -131,66 +131,29 @@ class EventsDetailViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0{
+            
             let cellIdentifier = "Events Detail Cell"
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! EventDetailTableViewCell
-            let dateFormatter = DateFormatter()
             let event = listDetails[indexPath.row]
-            var formattedStartDate = ""
-            var formattedEndDate = ""
-            
-            dateFormatter.dateFormat = "yyyy/MM/dd'T'HH:mm:ssZ"
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            if let startDate = event.start_date_time{
-                let eventTime = dateFormatter.date(from: startDate)
-                dateFormatter.dateFormat = "MM/dd/yyyy HH:mm a"
-                formattedStartDate = eventTime != nil ? dateFormatter.string(from: eventTime!) : "No Start Time"
-            }
-            if let endDate = event.end_date_time{
-                dateFormatter.dateFormat = "yyyy/MM/dd'T'HH:mm:ssZ"
-                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-                let eventTimed = dateFormatter.date(from: endDate)
-                dateFormatter.dateFormat = "h:mm a"
-                formattedEndDate = eventTimed != nil ? dateFormatter.string(from: eventTimed!) : "No End Time"
-            }
-            
-            cell.eventTitle.text = event.title
-            cell.eventDescription.text = event.event_description
-            cell.locationLabel.text = event.location
-            cell.eventDetailImage.sd_setImage(with: URL(string: event.image_url!), completed: nil)
-            cell.eventDateAndTime.text = formattedStartDate + "-" + formattedEndDate
+            cell.setUpEventCell(eventDetails: event)
             return cell
             
         }else if indexPath.section == 1{
             
-            
             let cellIdentifier2 = "SpeakerCell"
-            
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: cellIdentifier2, for: indexPath as IndexPath) as! EventDetailTableViewCell
-            
+            let speakerCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier2, for: indexPath as IndexPath) as! EventDetailTableViewCell
             let speaker = speakerDetails[indexPath.row]
-            cell2.speakerImage.sd_setImage(with: URL(string: speaker.image_url!), completed: nil)
-            cell2.speakerFirstName.text = speaker.first_name
-            cell2.speakerLastName.text = speaker.last_name
-            cell2.speakerBio.text = speaker.bio
-            return cell2
+            speakerCell.setSpeakerCell(speaker: speaker)
+            return speakerCell
             
         }else{
-            let cellIdentifier3 = "Speaker2Cell"
             
-            let cell3 = tableView.dequeueReusableCell(withIdentifier: cellIdentifier3, for: indexPath as IndexPath) as! EventDetailTableViewCell
-            
+            let cellIdentifier3 = "SpeakerCell"
+            let secondSpeakerCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier3, for: indexPath as IndexPath) as! EventDetailTableViewCell
             let speaker = speaker2Details[indexPath.row]
-            cell3.speaker2Img.sd_setImage(with: URL(string: speaker.image_url!), completed: nil)
-            cell3.speaker2FirstName.text = speaker.first_name
-            cell3.speaker2LastName.text = speaker.last_name
-            cell3.speaker2Bio.text = speaker.bio
-            return cell3
+            secondSpeakerCell.setSpeakerCell(speaker: speaker)
+            return secondSpeakerCell
         }
-        
-        
-        
-        
     }
     
 }

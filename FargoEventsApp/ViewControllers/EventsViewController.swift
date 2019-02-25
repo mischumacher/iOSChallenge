@@ -63,34 +63,11 @@ class EventsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         let cellIdentifier = "EventsListCell"
         let cell = selectedEvent.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! EventsTableViewCell
-        let dateFormatter = DateFormatter()
-        let event = listOfEvents[indexPath.row]
-        var formattedStartDate = ""
-        var formattedEndDate = ""
-        
-        dateFormatter.dateFormat = "yyyy/MM/dd'T'HH:mm:ssZ"
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        if let startDate = event.start_date_time{
-            let eventTime = dateFormatter.date(from: startDate)
-            dateFormatter.dateFormat = "MM/dd/yyyy HH:mm a"
-            formattedStartDate = eventTime != nil ? dateFormatter.string(from: eventTime!) : "No Start Time"
-        }
-        if let endDate = event.end_date_time{
-            dateFormatter.dateFormat = "yyyy/MM/dd'T'HH:mm:ssZ"
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            let eventTimed = dateFormatter.date(from: endDate)
-            dateFormatter.dateFormat = "h:mm a"
-            formattedEndDate = eventTimed != nil ? dateFormatter.string(from: eventTimed!) : "No End Time"
-        }
-        
-        cell.eventsName.text = event.title
-        cell.photoImageView.sd_setImage(with: URL(string: event.image_url!), completed: nil)
-        cell.startDateTime.text = formattedStartDate + "-" + formattedEndDate
+        let events = listOfEvents[indexPath.row]
+        cell.setupCell(event: events)
         return cell
-        
     }
     
     // MARK: - Navigation
