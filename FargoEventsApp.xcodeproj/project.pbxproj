@@ -19,6 +19,8 @@
 		87BCA42F21F7E0DE00889B3E /* EventsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCA42E21F7E0DE00889B3E /* EventsDetailViewController.swift */; };
 		87FC21AC21ABC94A007B237A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC21AB21ABC94A007B237A /* LoginViewController.swift */; };
 		B8048D5F2211F7E30084ED80 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8048D5E2211F7E30084ED80 /* Users.swift */; };
+		B88038A222246C49001F0BD6 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88038A122246C49001F0BD6 /* LoginPresenter.swift */; };
+		B88038A42225DA6F001F0BD6 /* ProgressSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88038A32225DA6F001F0BD6 /* ProgressSpinner.swift */; };
 		B890B5AB2214853B00614487 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890B5AA2214853B00614487 /* UserDefaults.swift */; };
 		B890B5AF22148D8200614487 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890B5AE22148D8200614487 /* MainNavigationController.swift */; };
 		ED9945A7650DF37FEB9138FA /* Pods_FargoEventsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B273584EF0A05ABF2BF315 /* Pods_FargoEventsApp.framework */; };
@@ -43,6 +45,8 @@
 		87FC21AB21ABC94A007B237A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A4B273584EF0A05ABF2BF315 /* Pods_FargoEventsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FargoEventsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8048D5E2211F7E30084ED80 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		B88038A122246C49001F0BD6 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		B88038A32225DA6F001F0BD6 /* ProgressSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinner.swift; sourceTree = "<group>"; };
 		B890B5AA2214853B00614487 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		B890B5AE22148D8200614487 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,13 +95,23 @@
 			children = (
 				874046AE219954130057D103 /* AppDelegate.swift */,
 				B890B5AA2214853B00614487 /* UserDefaults.swift */,
+				B88038A32225DA6F001F0BD6 /* ProgressSpinner.swift */,
 				874046BA219954140057D103 /* Info.plist */,
+				B88038A022246C06001F0BD6 /* Presenters */,
 				B8B53C75221E097E0072B005 /* UI */,
 				B8B53C74221E08FC0072B005 /* ViewControllers */,
 				B8B53C78221E09D20072B005 /* API Objects */,
 				B8B53C76221E09920072B005 /* Cells */,
 			);
 			path = FargoEventsApp;
+			sourceTree = "<group>";
+		};
+		B88038A022246C06001F0BD6 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				B88038A122246C49001F0BD6 /* LoginPresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		B8B53C74221E08FC0072B005 /* ViewControllers */ = {
@@ -275,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B88038A222246C49001F0BD6 /* LoginPresenter.swift in Sources */,
 				87FC21AC21ABC94A007B237A /* LoginViewController.swift in Sources */,
 				B8048D5F2211F7E30084ED80 /* Users.swift in Sources */,
 				874046B1219954130057D103 /* ViewController.swift in Sources */,
@@ -282,6 +297,7 @@
 				874046AF219954130057D103 /* AppDelegate.swift in Sources */,
 				87BCA42D21F7DFD400889B3E /* EventDetailTableViewCell.swift in Sources */,
 				87BCA42F21F7E0DE00889B3E /* EventsDetailViewController.swift in Sources */,
+				B88038A42225DA6F001F0BD6 /* ProgressSpinner.swift in Sources */,
 				B890B5AB2214853B00614487 /* UserDefaults.swift in Sources */,
 				8775532021B324E700C81134 /* Events.swift in Sources */,
 				87B7FEE721AFB1680090ED6C /* EventsTableViewCell.swift in Sources */,
