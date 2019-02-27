@@ -12,15 +12,13 @@ import KeychainAccess
 import Alamofire
 import EVReflection
 
-protocol LoginView {
+protocol LoginView: BaseView{
     func showLandingScreen()
-    func showProgress()
-    func hideProgress()
 }
 
 class LoginPresenter{
     //context
-    var view: LoginView?
+    weak var view: LoginView?
     let tokenKeychain = Keychain(service: "com.schumacher.FargoEventsApp")
     var navController: UINavigationController?
     
@@ -35,16 +33,23 @@ class LoginPresenter{
             tokenKeychain["loginToken"] = nil
             return
         }
-       validateLogin() 
-}
-
+        validateLogin()
+    }
+    
     func login(_ username: String?, _ password: String?) {
-
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
         //validates text field
+        vc.validationLabel?.isHidden = true
         guard username != nil, username?.count != 0 else{
+            vc.validationLabel?.text = "Please Enter Username"
+            vc.validationLabel?.isHidden = false
             return
         }
         guard password != nil, password?.count != 0 else{
+            vc.validationLabel?.text = "Please Enter Password"
+            vc.validationLabel?.isHidden = false
             return
         }
         view?.showProgress()
@@ -65,8 +70,8 @@ class LoginPresenter{
         }
     }
     
-   
-                
+    
+    
     func loadEvents(usertoken : String?){
         
         let eventsURL = "https://challenge.myriadapps.com/api/v1/events"
@@ -78,8 +83,8 @@ class LoginPresenter{
                     self.navController = UINavigationController(rootViewController: EventsViewController.create(events: result))
                     self.navController!.navigationBar.barTintColor = UIColor.init(displayP3Red: 3/255, green: 68/255, blue: 106/255, alpha: 1)
                     self.view?.showLandingScreen()
-            }
-
+                }
+                
         }
     }
     
@@ -94,7 +99,8 @@ class LoginPresenter{
             loadEvents(usertoken: validateToken)
             view?.hideProgress()
         }
-   
+        
     }
 }
+
 

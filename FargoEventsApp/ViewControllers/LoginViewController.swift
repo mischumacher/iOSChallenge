@@ -12,7 +12,7 @@ import Alamofire
 import EVReflection
 import KeychainAccess
 
-class LoginViewController: UIViewController{
+class LoginViewController: BaseViewController{
     
     //Mark:Properties
     @IBOutlet weak var usernameTextField: UITextField!
@@ -41,15 +41,8 @@ class LoginViewController: UIViewController{
 
 
 extension LoginViewController: LoginView{
-    
     func showLandingScreen() {
         self.present(presenter.getEvents(), animated: true, completion: nil)
-    }
-    func showProgress() {
-        ProgressSpinner.startSpinner(uiView: view)
-    }
-    func hideProgress() {
-        ProgressSpinner.stopSpinner(uiView: view)
     }
 }
 

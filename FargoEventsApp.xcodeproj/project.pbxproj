@@ -21,6 +21,7 @@
 		B8048D5F2211F7E30084ED80 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8048D5E2211F7E30084ED80 /* Users.swift */; };
 		B88038A222246C49001F0BD6 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88038A122246C49001F0BD6 /* LoginPresenter.swift */; };
 		B88038A42225DA6F001F0BD6 /* ProgressSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88038A32225DA6F001F0BD6 /* ProgressSpinner.swift */; };
+		B88038AA2226028E001F0BD6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88038A92226028E001F0BD6 /* BaseViewController.swift */; };
 		B890B5AB2214853B00614487 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890B5AA2214853B00614487 /* UserDefaults.swift */; };
 		B890B5AF22148D8200614487 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890B5AE22148D8200614487 /* MainNavigationController.swift */; };
 		ED9945A7650DF37FEB9138FA /* Pods_FargoEventsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B273584EF0A05ABF2BF315 /* Pods_FargoEventsApp.framework */; };
@@ -47,6 +48,7 @@
 		B8048D5E2211F7E30084ED80 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		B88038A122246C49001F0BD6 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		B88038A32225DA6F001F0BD6 /* ProgressSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinner.swift; sourceTree = "<group>"; };
+		B88038A92226028E001F0BD6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B890B5AA2214853B00614487 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		B890B5AE22148D8200614487 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 				87FC21AB21ABC94A007B237A /* LoginViewController.swift */,
 				876E3590219A2E2100FDC967 /* EventsViewController.swift */,
 				87BCA42E21F7E0DE00889B3E /* EventsDetailViewController.swift */,
+				B88038A92226028E001F0BD6 /* BaseViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				87FC21AC21ABC94A007B237A /* LoginViewController.swift in Sources */,
 				B8048D5F2211F7E30084ED80 /* Users.swift in Sources */,
 				874046B1219954130057D103 /* ViewController.swift in Sources */,
+				B88038AA2226028E001F0BD6 /* BaseViewController.swift in Sources */,
 				B890B5AF22148D8200614487 /* MainNavigationController.swift in Sources */,
 				874046AF219954130057D103 /* AppDelegate.swift in Sources */,
 				87BCA42D21F7DFD400889B3E /* EventDetailTableViewCell.swift in Sources */,
