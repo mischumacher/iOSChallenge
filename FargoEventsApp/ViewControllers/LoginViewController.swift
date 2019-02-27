@@ -27,9 +27,9 @@ class LoginViewController: BaseViewController{
         super.viewDidLoad()
         
         for textField in [usernameTextField, passwordTextField]{
-            textField!.delegate = (self as UITextFieldDelegate)
+            textField!.delegate = self
         }
-        presenter = LoginPresenter(with: self as LoginView)
+        presenter = LoginPresenter(with: self)
         presenter.start()
     }
     
@@ -42,7 +42,19 @@ class LoginViewController: BaseViewController{
 
 extension LoginViewController: LoginView{
     func showLandingScreen() {
-        self.present(presenter.getEvents(), animated: true, completion: nil)
+        let navController = UINavigationController(rootViewController: EventsViewController.create(events: presenter.getEvents()))
+        navController.navigationBar.barTintColor = UIColor.init(displayP3Red: 3/255, green: 68/255, blue: 106/255, alpha: 1)
+        self.present(navController, animated: true, completion: nil)
+        validationLabel.isHidden = true
+    }
+    func DisplayValidationMessage() {
+        validationLabel.text = "Please Fill in all text Fields"
+        validationLabel.isHidden = false
+    }
+    func NetworkAlertMessage() {
+        let alert = UIAlertController(title: "Connection Failed", message: "Please Check Connection \n and try again", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

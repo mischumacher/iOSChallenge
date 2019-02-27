@@ -17,7 +17,7 @@ protocol BaseView: class {
 
 }
 
-class BaseViewController: UIViewController{
+class BaseViewController: UIViewController, BaseView{
     func showProgress(){
          ProgressSpinner.startSpinner(uiView: view)
     }
