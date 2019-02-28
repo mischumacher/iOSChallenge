@@ -47,11 +47,11 @@ extension LoginViewController: LoginView{
         self.present(navController, animated: true, completion: nil)
         validationLabel.isHidden = true
     }
-    func DisplayValidationMessage() {
+    func displayValidationMessage() {
         validationLabel.text = "Please Fill in all text Fields"
         validationLabel.isHidden = false
     }
-    func NetworkAlertMessage() {
+    func networkAlertMessage() {
         let alert = UIAlertController(title: "Connection Failed", message: "Please Check Connection \n and try again", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)

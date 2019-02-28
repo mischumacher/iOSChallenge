@@ -16,15 +16,12 @@ import KeychainAccess
 
 
 
-class EventsViewController: UITableViewController {
+class EventsViewController: BaseTableViewController {
     
     //Mark: Properties
-    let tokenKeychain = Keychain(service: "com.schumacher.FargoEventsApp")
     @IBOutlet var selectedEvent: UITableView!
     
-    
     var listOfEvents: [Events] = [Events]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +30,6 @@ class EventsViewController: UITableViewController {
         selectedEvent.dataSource = self
         self.selectedEvent.estimatedRowHeight = 85
         self.selectedEvent.rowHeight = UITableView.automaticDimension
-        
         
     }
     
@@ -79,4 +75,7 @@ class EventsViewController: UITableViewController {
     }
     
 }
+
+
+
 

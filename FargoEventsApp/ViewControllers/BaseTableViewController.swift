@@ -1,8 +1,8 @@
 //
-//  BaseViewController.swift
+//  BaseTableViewController.swift
 //  FargoEventsApp
 //
-//  Created by Mitchell Schumacher on 2/26/19.
+//  Created by Mitchell Schumacher on 2/27/19.
 //  Copyright © 2019 Mitch Schumacher. All rights reserved.
 //
 
@@ -10,28 +10,22 @@ import Foundation
 import UIKit
 import KeychainAccess
 
-
-protocol BaseView: class {
+protocol BaseTableView: class {
     
     func showProgress()
     func hideProgress()
-    func setUserToken(userToken: String?)
     func removeUserToken()
     func getUserToken() -> String?
 }
 
-class BaseViewController: UIViewController, BaseView{
-
-    let tokenKeychain = Keychain(service: "com.schumacher.FargoEventsApp")
+class BaseTableViewController: UITableViewController, BaseTableView{
+     let tokenKeychain = Keychain(service: "com.schumacher.FargoEventsApp")
     
     func showProgress(){
-         ProgressSpinner.startSpinner(uiView: view)
+        ProgressSpinner.startSpinner(uiView: view)
     }
     func hideProgress() {
-         ProgressSpinner.stopSpinner(uiView: view)
-    }
-    func setUserToken(userToken: String?) {
-        tokenKeychain["loginToken"] = userToken
+        ProgressSpinner.stopSpinner(uiView: view)
     }
     func removeUserToken() {
         tokenKeychain["loginToken"] = nil
@@ -39,6 +33,4 @@ class BaseViewController: UIViewController, BaseView{
     func getUserToken() -> String? {
         return tokenKeychain["loginToken"]
     }
-        
-    
 }

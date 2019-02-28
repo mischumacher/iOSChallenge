@@ -22,6 +22,9 @@
 		B88038A222246C49001F0BD6 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88038A122246C49001F0BD6 /* LoginPresenter.swift */; };
 		B88038A42225DA6F001F0BD6 /* ProgressSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88038A32225DA6F001F0BD6 /* ProgressSpinner.swift */; };
 		B88038AA2226028E001F0BD6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88038A92226028E001F0BD6 /* BaseViewController.swift */; };
+		B88038AE22273688001F0BD6 /* EventsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88038AD22273688001F0BD6 /* EventsPresenter.swift */; };
+		B88038B0222736AB001F0BD6 /* EventDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88038AF222736AB001F0BD6 /* EventDetailsPresenter.swift */; };
+		B88038B6222749A8001F0BD6 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88038B5222749A8001F0BD6 /* BaseTableViewController.swift */; };
 		B890B5AB2214853B00614487 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890B5AA2214853B00614487 /* UserDefaults.swift */; };
 		B890B5AF22148D8200614487 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890B5AE22148D8200614487 /* MainNavigationController.swift */; };
 		ED9945A7650DF37FEB9138FA /* Pods_FargoEventsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B273584EF0A05ABF2BF315 /* Pods_FargoEventsApp.framework */; };
@@ -49,6 +52,9 @@
 		B88038A122246C49001F0BD6 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		B88038A32225DA6F001F0BD6 /* ProgressSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinner.swift; sourceTree = "<group>"; };
 		B88038A92226028E001F0BD6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B88038AD22273688001F0BD6 /* EventsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsPresenter.swift; sourceTree = "<group>"; };
+		B88038AF222736AB001F0BD6 /* EventDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsPresenter.swift; sourceTree = "<group>"; };
+		B88038B5222749A8001F0BD6 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		B890B5AA2214853B00614487 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		B890B5AE22148D8200614487 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				B88038A122246C49001F0BD6 /* LoginPresenter.swift */,
+				B88038AD22273688001F0BD6 /* EventsPresenter.swift */,
+				B88038AF222736AB001F0BD6 /* EventDetailsPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -125,6 +133,7 @@
 				876E3590219A2E2100FDC967 /* EventsViewController.swift */,
 				87BCA42E21F7E0DE00889B3E /* EventsDetailViewController.swift */,
 				B88038A92226028E001F0BD6 /* BaseViewController.swift */,
+				B88038B5222749A8001F0BD6 /* BaseTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -296,13 +305,16 @@
 				87FC21AC21ABC94A007B237A /* LoginViewController.swift in Sources */,
 				B8048D5F2211F7E30084ED80 /* Users.swift in Sources */,
 				874046B1219954130057D103 /* ViewController.swift in Sources */,
+				B88038B6222749A8001F0BD6 /* BaseTableViewController.swift in Sources */,
 				B88038AA2226028E001F0BD6 /* BaseViewController.swift in Sources */,
 				B890B5AF22148D8200614487 /* MainNavigationController.swift in Sources */,
+				B88038B0222736AB001F0BD6 /* EventDetailsPresenter.swift in Sources */,
 				874046AF219954130057D103 /* AppDelegate.swift in Sources */,
 				87BCA42D21F7DFD400889B3E /* EventDetailTableViewCell.swift in Sources */,
 				87BCA42F21F7E0DE00889B3E /* EventsDetailViewController.swift in Sources */,
 				B88038A42225DA6F001F0BD6 /* ProgressSpinner.swift in Sources */,
 				B890B5AB2214853B00614487 /* UserDefaults.swift in Sources */,
+				B88038AE22273688001F0BD6 /* EventsPresenter.swift in Sources */,
 				8775532021B324E700C81134 /* Events.swift in Sources */,
 				87B7FEE721AFB1680090ED6C /* EventsTableViewCell.swift in Sources */,
 				876E3591219A2E2100FDC967 /* EventsViewController.swift in Sources */,
